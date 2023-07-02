@@ -44,8 +44,9 @@ function handlerSubmit(evt) {
 updateOutput();
 function updateOutput() {
     const parsedSettings = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-    if (parsedSettings) { 
-    message.value = parsedSettings.message
-    email.value = parsedSettings.email
-}
+  if (parsedSettings === null||undefined) { 
+   return
+  }
+  message.value = parsedSettings.message||"" ;
+  email.value = parsedSettings.email || "";
 }
