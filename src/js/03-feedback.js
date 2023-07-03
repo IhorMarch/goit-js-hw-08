@@ -9,10 +9,11 @@ const LOCALSTORAGE_KEY = "feedback-form-state";
 form.addEventListener("input", throttle(handlerFormInput, 500));
 form.addEventListener("submit", handlerSubmit);
 
-const formData = {};
+
 
 function handlerFormInput(evt) {
-    evt.preventDefault();
+  evt.preventDefault();
+    const formData = {email: email.value, message: message.value};
     formData[evt.target.name] = evt.target.value;
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(formData));
     
